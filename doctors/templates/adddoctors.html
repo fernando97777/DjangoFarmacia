@@ -1,0 +1,26 @@
+{% extends "pastillas/home.html" %}
+{% load static %}
+
+{% block container_form %}
+    <h4 class="text-center  text-uppercase">{{ title }}</h4>
+    <form action="." method="post" class="pb-4 px-4">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit" class="btn mt-4 tex text-white fw-bold" style="background-color: darkcyan">Registrar Medico</button>
+    </form>
+    <script>
+        {% if form.errors %}
+            var errors = '';
+            {% for field in form %}
+                {% for error in field.errors %}
+                    errors += '{{ error }}\n'
+                {% endfor %}
+            {% endfor %}
+            Swal.fire({
+                title: 'Error!',
+                text: errors,
+                icon: 'error',
+            })
+        {% endif %}
+    </script>
+{% endblock %}

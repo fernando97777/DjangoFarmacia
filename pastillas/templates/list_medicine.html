@@ -1,0 +1,32 @@
+{% extends 'pastillas/home.html' %}
+{% load static %}
+
+{% block container_form %}
+    <table class="table table-bordered" id="data">
+        <h4 class="py-2 text-center text-uppercase">{{ title }}</h4>
+        <thead>
+        <tr class="bg-dark text-white">
+            <th scope="col">Nom.Medicamento</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Stock</th>
+            <th scope="col">Opciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for medi in object_list %}
+            <tr>
+                <td class="fw-bold">{{ medi.name }}</td>
+                <td>{{ medi.description }}</td>
+                <td>{{ medi.price }} $</td>
+                <td>{{ medi.stock }}</td>
+                <td>
+                    <a href="{% url 'update_medicine' medi.id %}" class="btn btn-warning mb-2">Editar</a>
+                    <a href="{% url 'delete_medicine' medi.id %}" class="btn btn-danger">Eliminar</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'registro_pastillas' %}" class="btn my-4 text-white fw-bold" style="background-color: darkcyan">Nueva Medicina</a>
+{% endblock %}

@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reporte</title>
+    <style>
+        table {
+            width: 100%;
+            border: 1px solid #000;
+        }
+
+        th, td {
+            width: 25%;
+            text-align: left;
+            vertical-align: top;
+            border: 1px solid #000;
+            border-collapse: collapse;
+            padding: 0.3em;
+            caption-side: bottom;
+        }
+
+        caption {
+            padding: 0.3em;
+            color: #fff;
+            background: #000;
+        }
+
+        th {
+            background: #eee;
+        }
+    </style>
+</head>
+<body>
+
+<table class="default">
+    <h2>Reporte Receta Medica</h2>
+    <img src="{% static 'img/conversation.png' %}" alt="">
+    <thead>
+    <tr>
+        <th scope="col">Doctor</th>
+        <th scope="col">Medicamento</th>
+        <th scope="col">Paciente</th>
+        <th scope="col">Cedula</th>
+        <th scope="col">Telefono</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for report in repor %}
+        <tr>
+            <td>{{ report.doctor }}</td>
+            <td>{{ report.medicament }}</td>
+            <td>{{ report.patient_name }}</td>
+            <td>{{ report.patient_Cedule }}</td>
+            <td>{{ report.patient_phone }}</td>
+
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<h2>Reporte genererado el : {{ date }}</h2>
+</body>
+</html>
+
+
+

@@ -1,0 +1,40 @@
+{% extends 'pastillas/home.html' %}
+{% load static %}
+
+{% block container_form %}
+    <div class="row mx-auto">
+        <div class="card mx-2 shadow-sm" style="width: 18rem;">
+            <img src="{% static 'img/doctor.png' %}" class="card-img-top py-2" alt="..."
+                 style="width: 30%; margin-left: 5rem">
+            <div class="card-body">
+                <h5 class="card-title">Reporte Doctores</h5>
+                <p class="card-text">Se mostrar un registro de todos los medicos dentro del sistema con su informacion
+                    personal</p>
+                <a href="{% url 'report_listdoctors' %}" class="text-decoration-none" target="_blank">Descargar</a>
+            </div>
+        </div>
+        <div class="card mx-2 shadow-sm" style="width: 18rem;">
+            <img src="{% static 'img/pills.png' %}" class="card-img-top py-2" alt="..."
+                 style="width: 30%; margin-left: 5rem">
+            <div class="card-body">
+                <h5 class="card-title">Reporte Medicinas</h5>
+                <p class="card-text">Se mostrar un registro de todos los medicamentos dentro del sistema con su informacion</p>
+                <a href="{% url 'report_listmedicine' %}" class="text-decoration-none" target="_blank">Descargar</a>
+            </div>
+        </div>
+
+        <div class="card mx-2 shadow-sm" style="width: 18rem;">
+            <img src="{% static 'img/medical-history.png' %}" class="card-img-top py-2" alt="..."
+                 style="width: 30%; margin-left: 5rem">
+            <div class="card-body">
+                <h5 class="card-title">Reporte Recetas</h5>
+                <p class="card-text">Se mostrar un registro de todas las recetas dentro del sistema con su informacion
+                    personal</p>
+                <a href="{% url 'report_listprescription' %}" class="text-decoration-none" target="_blank">Descargar</a>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

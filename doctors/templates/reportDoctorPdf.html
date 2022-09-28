@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reporte</title>
+    <style>
+        table {
+            width: 100%;
+            border: 1px solid #000;
+        }
+
+        th, td {
+            width: 25%;
+            text-align: left;
+            vertical-align: top;
+            border: 1px solid #000;
+            border-collapse: collapse;
+            padding: 0.3em;
+            caption-side: bottom;
+        }
+
+        caption {
+            padding: 0.3em;
+            color: #fff;
+            background: #000;
+        }
+
+        th {
+            background: #eee;
+        }
+    </style>
+</head>
+<body>
+<table class="default">
+    <h2>Reporte Medicos</h2>
+    <thead>
+    <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Cedula</th>
+        <th scope="col">Telefono</th>
+        <th scope="col">Direccion</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for medi in doc %}
+        <tr>
+            <td>{{ medi.name }}</td>
+            <td>{{ medi.cedule }}</td>
+            <td>{{ medi.phone }}</td>
+            <td>{{ medi.direction }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<h2>Reporte genererado el : {{ date }}</h2>
+</body>
+</html>
+
+
+

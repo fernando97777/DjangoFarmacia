@@ -1,0 +1,10 @@
+body{
+    font-family: 'Barlow', sans-serif;
+}
+
+.enlace:hover{
+    background-color: darkcyan;
+    border-radius: .5rem;
+    padding: .3rem;
+    color: white;
+}

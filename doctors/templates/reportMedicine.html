@@ -1,0 +1,11 @@
+{% extends "pastillas/home.html" %}
+{% load static %}
+
+{% block container_form %}
+    <h4 class="text-center my-4 text-uppercase">Receta Medica</h4>
+    <form action="" method="post" class="pb-4 px-4">
+        {%csrf_token %}
+        {{ form }}
+        <button type="submit" class="btn mt-4 tex text-white" style="background-color: darkcyan">Registrar</button>
+    </form>
+{% endblock %}

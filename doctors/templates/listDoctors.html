@@ -1,0 +1,32 @@
+{% extends 'pastillas/home.html' %}
+{% load static %}
+
+{% block container_form %}
+    <table class="table table-bordered" id="data">
+        <h4 class="py-2 text-center text-uppercase">{{ title }}</h4>
+        <thead>
+        <tr class="bg-dark text-white">
+            <th scope="col">Doctor</th>
+            <th scope="col">Cedula</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">Direccion</th>
+            <th scope="col">Opciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for medi in object_list %}
+            <tr>
+                <td class="fw-bold">{{ medi.name }}</td>
+                <td>{{ medi.cedule }}</td>
+                <td>{{ medi.phone }}</td>
+                <td>{{ medi.direction }} </td>
+                <td>
+                    <a href="{% url 'update_doctor' medi.id %}" class="btn btn-warning ">Editar</a>
+                    <a href="{% url 'delete_doctor' medi.id %}" class="btn btn-danger">Eliminar</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'registro_doctor' %}" class="btn my-4 text-white fw-bold" style="background-color: darkcyan">Nuevo Doctor</a>
+{% endblock %}

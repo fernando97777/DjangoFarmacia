@@ -1,0 +1,13 @@
+{% extends "pastillas/home.html" %}
+{% load static %}
+{% block container_form %}
+    <form action="." method="post">
+    {% csrf_token %}
+        <div class="card card-body">
+            <h4 class="text-center py-4">¿Seguro que quiere eliminar {{ title }} Nª {{ object.id }}?</h4>
+            <button type="submit" class="btn btn-danger btn-flat my-2">Si, aceptar</button>
+            <a href="{% url 'lista_medicamentos' %}" class="btn btn-warning btn-flat my-2">Cancelar</a>
+        </div>
+    </form>
+
+{% endblock %}
